@@ -50,11 +50,11 @@ namespace BullsAndCows
             return bullsCounter;
         }
 
-        public void MakeTurn(int[] turnNumber, int[] secretNumber)
-        {
-            BullsCounter(turnNumber, secretNumber);
-            CowsCounter(turnNumber, secretNumber);
-        }
+        //public void MakeTurn(int[] turnNumber, int[] secretNumber)
+        //{
+        //    BullsCounter(turnNumber, secretNumber);
+        //    CowsCounter(turnNumber, secretNumber);
+        //}
 
         //enum Message {ZeroControl,RepitControl,Length };
 

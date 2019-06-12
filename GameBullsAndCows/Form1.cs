@@ -16,12 +16,13 @@ namespace GameBullsAndCows
         {
             InitializeComponent();
         }
-
+        // private object secret;
         private void button2_Click(object sender, EventArgs e)
         {
             string turnNumber = textBox1.Text;
             dataGridView1.Rows.Add(turnNumber, "Bulls","Cows");
             NumerateRows();
+            MessageBox.Show("Win");
         }
 
         private void NumerateRows()
