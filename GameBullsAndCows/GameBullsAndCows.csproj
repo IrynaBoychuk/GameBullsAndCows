@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="Resources\green-grass-summer-gazon-fon-trava-zelenaia.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BullsAndCows\BullsAndCows.csproj">
+      <Project>{ad7aff74-edb9-4b34-8872-0a92f3a77c53}</Project>
+      <Name>BullsAndCows</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

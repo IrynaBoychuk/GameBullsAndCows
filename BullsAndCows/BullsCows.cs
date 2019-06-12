@@ -17,6 +17,25 @@ namespace BullsAndCows
             return digits;
         }
 
+        public int[] SeparateInt(int number)
+        {
+            string selectNumber = number.ToString();
+            int[] digits = Separate(selectNumber);
+            return digits;
+        }
+
+
+        public int RandomSecretNumber()
+        {
+            //int _min = 0000;
+            //int _max = 9999;
+            Random MyRandom = new Random(); 
+            return MyRandom.Next(0000, 9999);
+        }
+
+        
+
+
         public int CowsCounter(int[] turnNumber, int[] secretNumber)
         {
             int cowsCounter = 0;
@@ -92,7 +111,37 @@ namespace BullsAndCows
             }
             return GOOD_MESSAGE;
         }
-        
+
+        public bool ControlNumberAsResult(int[] turnNumber)
+        {
+
+            if (turnNumber.Length != 4)
+            {
+                return false;
+            }
+            if (turnNumber.First() == 0)
+            {
+                return false;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                for (int k = i + 1; k < 4; k++)
+                {
+                    if (turnNumber[i] == turnNumber[k])
+                        return false;
+                }
+            }
+
+            int[] legalNumbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            if (!turnNumber.All(c => legalNumbers.Contains(c)))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public List<int[]> GenerateAllGameNumbers()
         {
             
