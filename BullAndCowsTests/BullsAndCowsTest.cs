@@ -1,6 +1,8 @@
 ﻿using System;
 using BullsAndCows;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+
 
 namespace BullAndCows.Tests
 {
@@ -263,22 +265,7 @@ namespace BullAndCows.Tests
             // assert right or no 
             Assert.AreEqual(expected, actual);
         }
-        //[TestMethod]
-        //public void ControlConsistOfLetter() //todo
-        //{
-        //    // arrange-nastroiti
-        //    //??????????????? не хоче бо інтенжер
-        //    int[] turnNumber = { 4, 5, 6, 4,5 };
-        //    //int[] turnNumber = { 4, 5, 6, f};
-        //    string expected = BullsCows.CONSIST_LETTER;
-
-        //    BullsCows c = new BullsCows();
-        //    //act
-        //    string actual = c.ControlNumber(turnNumber);
-        //    // assert right or no 
-        //    Assert.AreEqual(expected, actual);
-        //}
-
+        
         [TestMethod]
         public void ControlZero()
         {
@@ -305,6 +292,20 @@ namespace BullAndCows.Tests
             Assert.AreEqual(expected, actual.Count);
         }
 
+        [TestMethod]
+        public void Type1Remove()
+        {
+            // arrange-nastroiti
+            int[] currentNumber = { 8, 0, 9, 7 };
+            var currentNumberList = new List<int[]>();
+            int expected = 0;
+
+            BullsCows c = new BullsCows();
+            //act
+           // int actual = c.CowsCounter(turnNumber, secretNumber);
+            // assert right or no 
+           // Assert.AreEqual(expected, actual);
+        }
 
 
     }
