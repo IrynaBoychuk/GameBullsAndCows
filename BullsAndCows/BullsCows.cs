@@ -263,36 +263,24 @@ namespace BullsAndCows
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                for (int i = 0; i < 4; i++)
-                {
+                //for (int i = 0; i < 4; i++)
+                //{
                     if (!number.Contains(currentNumber[0]) ||
                     !number.Contains(currentNumber[1]) ||
                     !number.Contains(currentNumber[2]) ||
                     !number.Contains(currentNumber[3]))
                     {
                         currentListOfNumber.Remove2(number);
-                        break;
+                        //break;
                     }
-                }
+               //}
             }
         }
 
         public void RemoveFourCows(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             RemoveAtLeastOneofFourIsAbsentElem(currentListOfNumber, currentNumber);
-            var List = currentListOfNumber.ToList();
-            foreach( var number in List)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (number[i] == currentNumber[i])
-                    {
-                        currentListOfNumber.Remove2(number);
-                        break;
-                    }
-                }
-
-            }
+            RemoveOnlyForCows(currentListOfNumber, currentNumber);
         }
 
 
@@ -336,28 +324,10 @@ namespace BullsAndCows
 
                 }
             }
-
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    for (int k = i + 1; k < 3; k++)
-            //    {
-            //        for (int p = k + 1; p < 4; p++)
-            //            for (int j = 0; j < currentListOfNumber.Count; j++)
-            //            {
-            //                if (currentListOfNumber[j].Contains(currentNumber[i]) && currentListOfNumber[j].Contains(currentNumber[k])
-            //                        && currentListOfNumber[j].Contains(currentNumber[p]))
-            //                {
-            //                    currentListOfNumber.Remove2(currentListOfNumber[j]);
-            //                }
-
-            //            }
-            //    }
-
-            //}
         }
         // 01 02 03 12 13 23
         //for 1 c
-        public void RemoveEveryTwoElem(List<int[]> currentListOfNumber, int[] currentNumber)
+        public void RemoveEveryTwoElemIsPresent(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
@@ -429,42 +399,46 @@ namespace BullsAndCows
         
         public void RemoveOneBul(List<int[]> currentListOfNumber, int[] currentNumber)
         {
-            RemoveEveryTwoElem(currentListOfNumber, currentNumber);
+            RemoveEveryTwoElemIsPresent(currentListOfNumber, currentNumber);
             RemoveOnlyForBulls(currentListOfNumber, currentNumber);
 
         }
+
         public void RemoveTwoBulls(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             RemoveArrayFromListThirdTypeTwo(currentListOfNumber, currentNumber);
             RemoveOnlyForBulls(currentListOfNumber, currentNumber);
         }
+
         public void RemoveThreeBulls(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             RemoveArrayFromListFourthTypeThree(currentListOfNumber, currentNumber);
             RemoveOnlyForBulls(currentListOfNumber, currentNumber);
         }
+
         public void RemoveOnlyForBulls(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                for (int i = 0; i < 4; i++)
-                {
-
-                    if (number[i] != currentNumber[i])
+                //for (int i = 0; i < 4; i++)
+                //{
+                    if (number[0] != currentNumber[0] &&
+                        number[1] != currentNumber[1] &&
+                        number[2] != currentNumber[2] &&
+                        number[3] != currentNumber[3])
                     {
                         currentListOfNumber.Remove2(number);
                         break;
                     }
-
-                }
+                //}
             }
 
         }
+
         public void RemoveOnlyForCows(List<int[]> currentListOfNumber, int[] currentNumber)
         {
-           // RemoveEveryTwoElem(currentListOfNumber, currentNumber);
-           var List = currentListOfNumber.ToList();
+            var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
                 
@@ -489,7 +463,7 @@ namespace BullsAndCows
 
         public void RemoveOneCow(List<int[]> currentListOfNumber, int[] currentNumber) // більше одного елемента сходяться
         {
-            RemoveEveryTwoElem(currentListOfNumber, currentNumber);
+            RemoveEveryTwoElemIsPresent(currentListOfNumber, currentNumber);
             RemoveNumber(currentListOfNumber, currentNumber);
             RemoveOnlyForCows(currentListOfNumber, currentNumber);
         }
