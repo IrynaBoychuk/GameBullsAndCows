@@ -292,21 +292,7 @@ namespace BullAndCows.Tests
             Assert.AreEqual(expected, actual.Count);
         }
 
-        [TestMethod]
-        public void Type1Remove()
-        {
-            // arrange-nastroiti
-            int[] currentNumber = { 8, 0, 9, 7 };
-            var currentNumberList = new List<int[]>();
-            int expected = 0;
-
-            BullsCows c = new BullsCows();
-            //act
-           // int actual = c.CowsCounter(turnNumber, secretNumber);
-            // assert right or no 
-           // Assert.AreEqual(expected, actual);
-        }
-
+        
 
     }
 }

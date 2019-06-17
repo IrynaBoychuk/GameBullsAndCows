@@ -58,6 +58,7 @@ namespace GameBullsAndCows
             dataGridView2.Rows.Clear();
             textBox1.Clear();
             textBox2.Clear();
+            step = 0;
             textBox2.Enabled = true;
             MySecretNumberButton.Enabled = true;
            

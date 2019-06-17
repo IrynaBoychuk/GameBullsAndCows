@@ -263,17 +263,15 @@ namespace BullsAndCows
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                //for (int i = 0; i < 4; i++)
-                //{
-                    if (!number.Contains(currentNumber[0]) ||
+
+                if (!number.Contains(currentNumber[0]) ||
                     !number.Contains(currentNumber[1]) ||
                     !number.Contains(currentNumber[2]) ||
                     !number.Contains(currentNumber[3]))
-                    {
-                        currentListOfNumber.Remove2(number);
-                        //break;
-                    }
-               //}
+                {                 
+                    currentListOfNumber.Remove2(number);
+                    break;
+                }
             }
         }
 
@@ -290,10 +288,10 @@ namespace BullsAndCows
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                if (number.Contains(currentNumber[0]) &&
-                    number.Contains(currentNumber[1]) &&
-                    number.Contains(currentNumber[2]) &&
-                    number.Contains(currentNumber[3]))
+                if (number[0] ==currentNumber[0] &&
+                    number[1] == currentNumber[1] &&
+                    number[2] == currentNumber[2] &&
+                    number[3] == currentNumber[3])
                 {
                     currentListOfNumber.Remove2(number);
                     break;
@@ -364,6 +362,7 @@ namespace BullsAndCows
                                                             && !number.Contains(currentNumber[p]))
                             {
                                 currentListOfNumber.Remove2(number);
+                                break; //ADDThis
                             }
                         }
 
@@ -421,16 +420,25 @@ namespace BullsAndCows
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                //for (int i = 0; i < 4; i++)
-                //{
-                    if (number[0] != currentNumber[0] &&
-                        number[1] != currentNumber[1] &&
-                        number[2] != currentNumber[2] &&
-                        number[3] != currentNumber[3])
+                for (int i = 0; i < 4; i++)
+                {
+                    if (number[i] != currentNumber[i] )
                     {
                         currentListOfNumber.Remove2(number);
                         break;
                     }
+                }
+
+                //for (int i = 0; i < 4; i++)
+                //{
+                //    if (number[0] != currentNumber[0] &&
+                //        number[1] != currentNumber[1] &&
+                //        number[2] != currentNumber[2] &&
+                //        number[3] != currentNumber[3])
+                //    {
+                //        currentListOfNumber.Remove2(number);
+                //        break;
+                //    }
                 //}
             }
 
@@ -512,7 +520,7 @@ namespace BullsAndCows
     {
         public static void Remove2(this List<int[]> list, int[] number)
         {
-            if (string.Join("", number) == "1234")
+            if (string.Join("", number) == "5678")
             {
 
             }
