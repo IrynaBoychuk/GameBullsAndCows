@@ -53,7 +53,8 @@ namespace GameBullsAndCows
         private int[] computerSecretNumberArray;
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Computer choose number. Your turn.");
+            label1.Text = "Computer choose number. Your turn.";
+            //MessageBox.Show("Computer choose number. Your turn.");
             dataGridView1.Rows.Clear();
             dataGridView2.Rows.Clear();
             textBox1.Clear();
@@ -72,7 +73,7 @@ namespace GameBullsAndCows
 
         }
 
-        // private object secret;
+        
         private void GuessButton_Click(object sender, EventArgs e)
         {
             //КРОК ГРАВЦЯ
@@ -85,12 +86,11 @@ namespace GameBullsAndCows
                 dataGridView1.Rows.Add(turnNumber, bulls + " Bulls", cows + " Cows");
                 NumerateRows();
                 //КРОК КОМП'ЮТЕРА
-                //компютер дає число
                 int[] pcTurn = Computer.GetTurn();
                 dataGridView2[0, step].Value = String.Join("", pcTurn);
                 if (clBullsCows.BullsCounter(turnNumberArray, computerSecretNumberArray) == 4)
-                { MessageBox.Show("Congratulations!!!You win");
-
+                {
+                    MessageBox.Show("Congratulations!!!You win");
                     textBox1.Enabled = false;
                     GuessButton.Enabled = false;
                     PCGuessButton.Enabled = false;
@@ -98,7 +98,8 @@ namespace GameBullsAndCows
             }
             else
             {
-                MessageBox.Show("Not correct input.Try again.");
+                label1.Text = "Not correct input.Try again.";
+                //MessageBox.Show("Not correct input.Try again.");
                 textBox1.Clear();
             }
         }
@@ -116,11 +117,13 @@ namespace GameBullsAndCows
             if (!clBullsCows.ControlNumberAsResult(mySecretNumberArray))
             { 
                 textBox2.Clear();
-                MessageBox.Show("Not correct input.Try again.");
+                label1.Text = "Not correct input.Try again.";
+                //MessageBox.Show("Not correct input.Try again.");
             }
            else
             {
-                MessageBox.Show("Start guesing.");
+                label1.Text = "Start guesing.";
+               // MessageBox.Show("Start guesing.");
                 textBox1.Enabled = true;
                 GuessButton.Enabled = true;
                 textBox2.Enabled = false;
@@ -132,7 +135,6 @@ namespace GameBullsAndCows
         private void PCGuessButton_Click(object sender, EventArgs e)
         {
             
-            //Функція Алгоритму комп`ютера для зменшення лісту з варіантами
             int bullsCounter = 0;
             int cowsCounter = 0;
             //Відповідь гравця компютеру : к-сть корів та биків

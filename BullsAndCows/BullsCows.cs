@@ -170,7 +170,6 @@ namespace BullsAndCows
             // 0б0к 1б0к 2б0к 3б0к 4б(Кінець) 0б1к 0б2к 0б3к 0б4к 1б1б 1б2к 1б3к 2б2к
         }
 
-        //ф-ція крок комп'ютера
 
         public void Analyze(int checkBullsCounter, int checkCowsCounter, List<int[]> currentListOfNumber, int[] currentNumber)
         {
@@ -189,56 +188,57 @@ namespace BullsAndCows
             //    }
             //}
             Debug.WriteLine($"{currentNumber}: count {currentListOfNumber.Count}");
-            //
+            
             if (checkBullsCounter == 0 && checkCowsCounter == 0)
             {
                 RemoveZero(currentListOfNumber, currentNumber);
             }
-            //
             else if (checkBullsCounter == 1 && checkCowsCounter == 0)
             {
                 RemoveOneBul(currentListOfNumber, currentNumber);
             }
-            //+ OnlyForCows
             else if (checkBullsCounter == 0 && checkCowsCounter == 1)
             {
                 RemoveOneCow(currentListOfNumber, currentNumber);
             }
-            //
             else if (checkBullsCounter == 2 && checkCowsCounter == 0)
             {
                 RemoveTwoBulls(currentListOfNumber, currentNumber);
             }
-            //
             else if (checkBullsCounter == 1 && checkCowsCounter == 1)
             {
                 RemoveArrayFromListThirdTypeTwo(currentListOfNumber, currentNumber);
             }
-            //
             else if (checkBullsCounter == 0 && checkCowsCounter == 2)
             {
                 RemoveTwoCows(currentListOfNumber, currentNumber);
             }
-            //{
-            //    RemoveArrayFromListThirdTypeTwo(currentListOfNumber, currentNumber);
-            //}
             else if (checkBullsCounter == 0 && checkCowsCounter == 3)
-            { RemoveThreeCows(currentListOfNumber, currentNumber); }
+            {
+                RemoveThreeCows(currentListOfNumber, currentNumber);
+            }
             else if(checkBullsCounter == 3 && checkCowsCounter == 0)
-            { RemoveThreeBulls(currentListOfNumber, currentNumber); }
+            {
+                RemoveThreeBulls(currentListOfNumber, currentNumber);
+            }
             else if ((checkBullsCounter == 1 && checkCowsCounter == 2) || (checkBullsCounter == 2 && checkCowsCounter == 1))
-            { RemoveArrayFromListFourthTypeThree(currentListOfNumber, currentNumber); }
+            {
+                RemoveArrayFromListFourthTypeThree(currentListOfNumber, currentNumber);
+            }
             
             else if (checkBullsCounter == 0 && checkCowsCounter == 4)
-            { RemoveFourCows(currentListOfNumber, currentNumber); }
-            //+
+            {
+                RemoveFourCows(currentListOfNumber, currentNumber);
+            }
+
             else if( (checkBullsCounter == 2 && checkCowsCounter == 2)|| (checkBullsCounter == 1 && checkCowsCounter == 3))
-            { RemoveArrayFromListFifthTypeFour(currentListOfNumber, currentNumber); }
+            {
+                RemoveArrayFromListFifthTypeFour(currentListOfNumber, currentNumber);
+            }
             
         }
 
         //видаляє якщо хоч один елемент є в числі
-        //for 0 c
         public void RemoveOneOfFourIsPresentElem(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
@@ -255,9 +255,7 @@ namespace BullsAndCows
             }
         }
 
-        
-        //видаляє якщо 
-        //for 4 c
+         //видаляє якщо всіх 4 немає
         public void RemoveAtLeastOneofFourIsAbsentElem(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
@@ -274,14 +272,6 @@ namespace BullsAndCows
                 }
             }
         }
-
-        public void RemoveFourCows(List<int[]> currentListOfNumber, int[] currentNumber)
-        {
-            RemoveAtLeastOneofFourIsAbsentElem(currentListOfNumber, currentNumber);
-            RemoveOnlyForCows(currentListOfNumber, currentNumber);
-        }
-
-
 
         public void RemoveNumber(List<int[]> currentListOfNumber, int[] currentNumber)
         {
@@ -300,8 +290,8 @@ namespace BullsAndCows
         }
 
         // 012 013 023 123  
-        // for 2 c
-        public void RemoveEveryThreeElem(List<int[]> currentListOfNumber, int[] currentNumber)
+        // якщо є 3 з 4 цифр в числі
+        public void RemoveEveryThreeElemIsPresent(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
@@ -323,8 +313,9 @@ namespace BullsAndCows
                 }
             }
         }
+
         // 01 02 03 12 13 23
-        //for 1 c
+        //якщо є 2 з 4 цифр в числі
         public void RemoveEveryTwoElemIsPresent(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
@@ -347,6 +338,7 @@ namespace BullsAndCows
 
 
         //for 3c
+        // якщо немає відсутні 3 з 4
         public void RemoveThreeElemIsAbsent(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
@@ -398,7 +390,7 @@ namespace BullsAndCows
         
         public void RemoveOneBul(List<int[]> currentListOfNumber, int[] currentNumber)
         {
-            RemoveEveryTwoElemIsPresent(currentListOfNumber, currentNumber);
+            RemoveArrayFromListSecondTypeOne(currentListOfNumber, currentNumber);
             RemoveOnlyForBulls(currentListOfNumber, currentNumber);
 
         }
@@ -415,32 +407,33 @@ namespace BullsAndCows
             RemoveOnlyForBulls(currentListOfNumber, currentNumber);
         }
 
+        
         public void RemoveOnlyForBulls(List<int[]> currentListOfNumber, int[] currentNumber)
         {
             var List = currentListOfNumber.ToList();
             foreach (var number in List)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (number[i] != currentNumber[i] )
-                    {
-                        currentListOfNumber.Remove2(number);
-                        break;
-                    }
-                }
-
                 //for (int i = 0; i < 4; i++)
                 //{
-                //    if (number[0] != currentNumber[0] &&
-                //        number[1] != currentNumber[1] &&
-                //        number[2] != currentNumber[2] &&
-                //        number[3] != currentNumber[3])
+                //    if (number[i] != currentNumber[i] )
                 //    {
                 //        currentListOfNumber.Remove2(number);
                 //        break;
                 //    }
                 //}
+                
+                    if (number[0] != currentNumber[0] &&
+                        number[1] != currentNumber[1] &&
+                        number[2] != currentNumber[2] &&
+                        number[3] != currentNumber[3])
+                    {
+                        currentListOfNumber.Remove2(number);
+                        break;
+                    }
+                
             }
+
+            
 
         }
 
@@ -471,40 +464,47 @@ namespace BullsAndCows
 
         public void RemoveOneCow(List<int[]> currentListOfNumber, int[] currentNumber) // більше одного елемента сходяться
         {
-            RemoveEveryTwoElemIsPresent(currentListOfNumber, currentNumber);
-            RemoveNumber(currentListOfNumber, currentNumber);
             RemoveOnlyForCows(currentListOfNumber, currentNumber);
+            RemoveArrayFromListSecondTypeOne(currentListOfNumber, currentNumber);
         }
 
         public void RemoveTwoCows(List<int[]> currentListOfNumber, int[] currentNumber) // більше одного елемента сходяться
         {
-            RemoveEveryThreeElem(currentListOfNumber, currentNumber);
-            RemoveNumber(currentListOfNumber, currentNumber);
+            RemoveArrayFromListThirdTypeTwo(currentListOfNumber, currentNumber);
             RemoveOnlyForCows(currentListOfNumber, currentNumber);
         }
 
         public void RemoveThreeCows(List<int[]> currentListOfNumber, int[] currentNumber) // більше одного елемента сходяться
         {
             RemoveArrayFromListFourthTypeThree(currentListOfNumber, currentNumber);
-            //RemoveNumber(currentListOfNumber, currentNumber);
             RemoveOnlyForCows(currentListOfNumber, currentNumber);
+        }
+
+        public void RemoveFourCows(List<int[]> currentListOfNumber, int[] currentNumber)
+        {
+            // RemoveAtLeastOneofFourIsAbsentElem(currentListOfNumber, currentNumber);
+            RemoveArrayFromListFifthTypeFour(currentListOfNumber, currentNumber);
+            RemoveOnlyForCows(currentListOfNumber, currentNumber);
+        }
+
+        public void RemoveArrayFromListSecondTypeOne(List<int[]> currentListOfNumber, int[] currentNumber) //видаляє всі масиви в яких є хлча бодна цифра
+        {
+            RemoveNumber(currentListOfNumber, currentNumber);
+            RemoveEveryTwoElemIsPresent(currentListOfNumber, currentNumber);
         }
 
         public void RemoveArrayFromListThirdTypeTwo(List<int[]> currentListOfNumber, int[] currentNumber) //видаляє всі масиви в яких є хлча бодна цифра
         {
             RemoveNumber(currentListOfNumber, currentNumber);
-            RemoveEveryThreeElem(currentListOfNumber, currentNumber);
+            RemoveEveryThreeElemIsPresent(currentListOfNumber, currentNumber);
         }
 
 
         public void RemoveArrayFromListFourthTypeThree(List<int[]> currentListOfNumber, int[] currentNumber)
         {
-            //якщо рівно 3 цифри з числа відсутні 
             RemoveThreeElemIsAbsent(currentListOfNumber, currentNumber);
             RemoveNumber(currentListOfNumber, currentNumber);
-            //якщо рівно 2 цифри з числа присутня
             RemoveTwoElemIsAbsent(currentListOfNumber, currentNumber);
-            //RemoveOneOfFourIsPresentElem(currentListOfNumber, currentNumber);
         }
 
         public void RemoveArrayFromListFifthTypeFour(List<int[]> currentListOfNumber, int[] currentNumber)
@@ -512,8 +512,6 @@ namespace BullsAndCows
             RemoveNumber(currentListOfNumber, currentNumber);
             RemoveAtLeastOneofFourIsAbsentElem(currentListOfNumber, currentNumber);
         }
-
-
     }
 
     public static class Extensions

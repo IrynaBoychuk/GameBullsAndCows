@@ -34,6 +34,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PCGuessButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.MySecretNumberButton = new System.Windows.Forms.Button();
             this.GuessButton = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PCGuessButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -52,19 +53,17 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGreen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(635, 42);
+            this.dataGridView1.Location = new System.Drawing.Point(633, 192);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(576, 687);
+            this.dataGridView1.Size = new System.Drawing.Size(576, 728);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column2
@@ -100,12 +99,24 @@
             this.groupBox1.Controls.Add(this.NewGameButton);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(31, 51);
+            this.groupBox1.Location = new System.Drawing.Point(12, 192);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 620);
+            this.groupBox1.Size = new System.Drawing.Size(578, 728);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "      Try guess number :)";
+            // 
+            // PCGuessButton
+            // 
+            this.PCGuessButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.PCGuessButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PCGuessButton.Location = new System.Drawing.Point(35, 489);
+            this.PCGuessButton.Name = "PCGuessButton";
+            this.PCGuessButton.Size = new System.Drawing.Size(282, 106);
+            this.PCGuessButton.TabIndex = 6;
+            this.PCGuessButton.Text = "PC Guess";
+            this.PCGuessButton.UseVisualStyleBackColor = false;
+            this.PCGuessButton.Click += new System.EventHandler(this.PCGuessButton_Click);
             // 
             // textBox2
             // 
@@ -160,18 +171,16 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView2.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(1240, 42);
+            this.dataGridView2.Location = new System.Drawing.Point(1248, 192);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.Size = new System.Drawing.Size(576, 687);
+            this.dataGridView2.Size = new System.Drawing.Size(576, 728);
             this.dataGridView2.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
@@ -195,24 +204,27 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Cows";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // PCGuessButton
+            // label1
             // 
-            this.PCGuessButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.PCGuessButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PCGuessButton.Location = new System.Drawing.Point(35, 489);
-            this.PCGuessButton.Name = "PCGuessButton";
-            this.PCGuessButton.Size = new System.Drawing.Size(282, 106);
-            this.PCGuessButton.TabIndex = 6;
-            this.PCGuessButton.Text = "PC Guess";
-            this.PCGuessButton.UseVisualStyleBackColor = false;
-            this.PCGuessButton.Click += new System.EventHandler(this.PCGuessButton_Click);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LightGreen;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(381, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(329, 78);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Message:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GameBullsAndCows.Properties.Resources.green_grass_summer_gazon_fon_trava_zelenaia;
-            this.ClientSize = new System.Drawing.Size(1930, 949);
+            this.ClientSize = new System.Drawing.Size(1930, 990);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -227,6 +239,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -247,6 +260,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button PCGuessButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 
